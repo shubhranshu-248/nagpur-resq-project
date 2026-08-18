@@ -1,0 +1,194 @@
+/* Traffic Operator Page CSS */
+
+.operator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.operator-badge-mode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(168, 85, 247, 0.08);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #A855F7;
+  letter-spacing: 0.05em;
+}
+
+.operator-grid-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.operator-main-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Junction Overrides Table */
+.junction-override-table {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(7, 17, 31, 0.4);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 1.5fr 1.8fr;
+  padding: 14px 18px;
+  font-size: 0.8rem;
+  border-bottom: 1px solid var(--panel-border);
+  align-items: center;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-hdr {
+  background-color: rgba(7, 17, 31, 0.8);
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.row-active {
+  background-color: rgba(34, 197, 94, 0.03);
+  border-left: 3px solid var(--success);
+  padding-left: 15px; /* adjust for border */
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.mode-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.mode-badge.override {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.mode-badge.passed {
+  background-color: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  border: 1px solid var(--panel-border);
+}
+
+.mode-badge.ready {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.mode-badge.normal {
+  background-color: rgba(255, 255, 255, 0.02);
+  color: var(--text-secondary);
+  border: 1px solid var(--panel-border);
+}
+
+/* Operator Side Panel Terminal Logs */
+.operator-side-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-panel {
+  background-color: #030810;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+}
+
+.terminal-hdr {
+  background-color: #0d1624;
+  border-bottom: 1px solid var(--panel-border);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot-term {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-term.red { background-color: var(--critical); }
+.dot-term.yellow { background-color: var(--warning); }
+.dot-term.green { background-color: var(--success); }
+
+.terminal-hdr .title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-left: 8px;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.line-log {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.text-muted { color: var(--text-muted); }
+.text-success { color: var(--success); }
+.text-primary { color: var(--primary); }
+.text-warning { color: var(--warning); }
+
+@media (max-width: 1100px) {
+  .operator-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .table-row {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 8px;
+  }
+  .table-row span:nth-child(3),
+  .table-row span:nth-child(4) {
+    grid-column: span 2;
+  }
+}

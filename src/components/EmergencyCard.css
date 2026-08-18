@@ -1,0 +1,201 @@
+.emergency-card {
+  background-color: rgba(13, 27, 42, 0.6);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.emergency-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.critical-border {
+  border-left: 4px solid var(--critical);
+}
+
+.warning-border {
+  border-left: 4px solid var(--warning);
+}
+
+.emergency-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.severity-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.severity-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.severity-badge.critical {
+  background-color: var(--critical-glow);
+  color: var(--critical);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.severity-badge.warning {
+  background-color: var(--warning-glow);
+  color: var(--warning);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.emergency-id {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.time-ago {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.emergency-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.emergency-type {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.info-meta-row {
+  display: flex;
+  gap: 16px;
+}
+
+.info-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.meta-icon {
+  color: var(--text-muted);
+}
+
+.requirements-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.section-label-tiny {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.requirement-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--panel-border);
+  color: var(--text-secondary);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.emergency-notes {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  border-left: 2px solid var(--panel-border);
+  padding-left: 8px;
+  font-style: italic;
+}
+
+.emergency-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--panel-border);
+  padding-top: 12px;
+}
+
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+  animation: pulse 1s infinite ease-in-out;
+}
+
+.status-pulse-dot.ambulance-searching {
+  background-color: var(--critical);
+  box-shadow: 0 0 8px var(--critical);
+}
+
+.status-pulse-dot.ambulance-en-route {
+  background-color: var(--warning);
+  box-shadow: 0 0 8px var(--warning);
+}
+
+.status-pulse-dot.dispatched {
+  background-color: var(--primary);
+  box-shadow: 0 0 8px var(--primary);
+}
+
+.dispatch-status {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-light);
+}
+
+.btn-view-mission {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--primary);
+  color: white;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-view-mission:hover {
+  background-color: var(--primary-hover);
+}

@@ -1,0 +1,468 @@
+/* Driver View Smartphone Chassis CSS */
+
+.driver-viewport-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - var(--topbar-height) - 48px);
+  padding: 12px;
+  gap: 12px;
+}
+
+.driver-standby-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--border-radius-sm);
+  color: var(--warning);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.driver-standby-banner .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--warning);
+}
+
+/* Smartphone frame container */
+.phone-chassis {
+  width: 100%;
+  max-width: 380px;
+  height: 680px;
+  background-color: #1e293b;
+  border: 12px solid #0f172a;
+  border-radius: 36px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  position: relative;
+}
+
+.phone-chassis::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: #334155;
+  border-radius: 2px;
+  z-index: 100;
+}
+
+.phone-screen-viewport {
+  width: 100%;
+  height: 100%;
+  background-color: #070d19;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 12px;
+  color: var(--text-light);
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Phone Status Bar */
+.phone-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  padding: 0 4px;
+  margin-top: 4px;
+}
+
+.notch-sensor {
+  width: 80px;
+  height: 14px;
+  background-color: #0f172a;
+  border-radius: 0 0 10px 10px;
+  margin-top: -6px;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gps-lock-lbl {
+  color: var(--success);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* In-cab header */
+.phone-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--panel-border);
+  padding: 8px 12px;
+  border-radius: var(--border-radius-sm);
+}
+
+.unit-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.unit-indicator .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+}
+
+.unit-indicator .text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.mission-tag {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Phone route mini map */
+.phone-mini-map {
+  height: 120px;
+  background-color: #020710;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.mini-mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.01) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.01) 1px, transparent 1px);
+  background-size: 10px 10px;
+  pointer-events: none;
+}
+
+.mini-highway-line {
+  width: 100%;
+  height: 4px;
+  background-color: #111a28;
+  border-radius: 2px;
+  position: relative;
+}
+
+.mini-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+  border-radius: 2px;
+  transition: width 1s linear;
+}
+
+.mini-node {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.95rem;
+}
+
+.mini-node.start { left: 0; }
+.mini-node.end { left: 100%; }
+
+.mini-node.amb-dot {
+  transition: left 1s linear;
+  z-index: 10;
+}
+
+.amb-avatar {
+  font-size: 1.05rem;
+  filter: drop-shadow(0 2px 4px var(--primary));
+  display: inline-block;
+}
+
+.sector-overlay-label {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Primary Telemetry cluster */
+.phone-telemetry-cluster {
+  background-color: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.primary-eta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.telemetry-lbl {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+
+.telemetry-big-val {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.telemetry-row-sub {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  border-top: 1px dotted var(--panel-border);
+  padding-top: 12px;
+}
+
+.sub-tel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tel-lbl {
+  font-size: 0.52rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.tel-val {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+/* Next intersection priority panel */
+.phone-signal-priority-panel {
+  background-color: rgba(7, 17, 31, 0.4);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.panel-hdr-tiny {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.priority-status-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.signal-indicator-cluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.signal-avatar {
+  font-size: 1.15rem;
+}
+
+.signal-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.sig-name {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.sig-eta {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+}
+
+.override-signal-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.override-signal-badge.active {
+  background-color: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: var(--success);
+}
+
+.override-signal-badge.active .badge-dot {
+  background-color: var(--success);
+  box-shadow: 0 0 6px var(--success);
+}
+
+.override-signal-badge.ready {
+  background-color: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: var(--warning);
+}
+
+.override-signal-badge.ready .badge-dot {
+  background-color: var(--warning);
+  box-shadow: 0 0 6px var(--warning);
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.pulse-circle {
+  animation: pulse 1s infinite ease-in-out;
+}
+
+.badge-txt {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Dispatch details banner */
+.phone-emergency-preview {
+  background-color: rgba(239, 68, 68, 0.03);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-radius: var(--border-radius-sm);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.phone-emergency-preview .label {
+  font-size: 0.52rem;
+  font-weight: 700;
+  color: var(--critical);
+  letter-spacing: 0.05em;
+}
+
+.phone-emergency-preview .body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.phone-emergency-preview .type {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.phone-emergency-preview .notes {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+/* In-cab diagnostic simulation control panel */
+.driver-simulation-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  padding: 10px 20px;
+  border-radius: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.driver-simulation-controls .label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.btn-sim-toggle {
+  background-color: rgba(255, 255, 255, 0.01);
+  border: 1px dashed var(--panel-border);
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-sim-toggle:hover {
+  border-color: var(--text-muted);
+  color: var(--text-light);
+}
+
+.btn-sim-toggle.active {
+  background-color: rgba(239, 68, 68, 0.08);
+  border-color: var(--critical);
+  color: var(--critical);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.1);
+  border-style: solid;
+}
+
+@media (max-width: 480px) {
+  .phone-chassis {
+    border: none;
+    border-radius: 0;
+    height: auto;
+    max-width: 100%;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .phone-chassis::before {
+    display: none;
+  }
+}

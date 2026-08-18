@@ -1,0 +1,267 @@
+/* Performance Analytics Page CSS Styling */
+
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.demo-data-badge {
+  background-color: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: var(--primary);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+/* KPIs cards Grid */
+.analytics-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.analytics-kpi-card {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.analytics-kpi-card .kpi-icon {
+  flex-shrink: 0;
+}
+
+.analytics-kpi-card .card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.analytics-kpi-card .lbl {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.analytics-kpi-card .val {
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+/* HERO Comparison Chart */
+.hero-chart-card {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.chart-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dotted var(--panel-border);
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chart-hdr .chart-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.comparison-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.bg-success-light {
+  background-color: rgba(34, 197, 94, 0.08);
+  color: var(--success);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.hero-chart-body {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.comparison-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.flow-item-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.flow-item-bar .bar-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.flow-item-bar .bar-track {
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.flow-item-bar .bar-fill {
+  height: 100%;
+  border-radius: 6px;
+}
+
+.baseline-bar .bar-fill {
+  background-color: var(--text-muted);
+}
+
+.resq-bar .bar-fill {
+  background-color: var(--success);
+  box-shadow: 0 0 10px var(--success-glow);
+}
+
+/* Time Saved Block */
+.time-saved-hero-box {
+  background-color: rgba(34, 197, 94, 0.03);
+  border: 1px dashed rgba(34, 197, 94, 0.25);
+  border-radius: var(--border-radius-sm);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.time-saved-hero-box .box-lbl {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.time-saved-hero-box .box-val {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--success);
+  line-height: 1.1;
+  text-shadow: 0 0 15px rgba(34, 197, 94, 0.25);
+}
+
+.time-saved-hero-box .box-sub {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* Custom CSS Horizontal bar charts */
+.sub-charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.custom-css-bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.chart-row-flex {
+  display: grid;
+  grid-template-columns: 1.2fr 4fr 1.2fr;
+  gap: 16px;
+  align-items: center;
+  font-size: 0.78rem;
+}
+
+.chart-row-flex .label {
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.chart-row-flex .bar-wrapper {
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.chart-row-flex .bar-indicator {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.bar-indicator.primary {
+  background-color: var(--primary);
+  box-shadow: 0 0 6px var(--primary-glow);
+}
+
+.bar-indicator.success {
+  background-color: var(--success);
+  box-shadow: 0 0 6px var(--success-glow);
+}
+
+.chart-row-flex .value {
+  color: var(--text-light);
+  text-align: right;
+  font-weight: 700;
+}
+
+/* Footer safety notices */
+.analytics-footer-note {
+  border-top: 1px solid var(--panel-border);
+  padding-top: 18px;
+  margin-top: 10px;
+}
+
+.analytics-footer-note .sys-status span {
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .hero-chart-body {
+    grid-template-columns: 1fr;
+  }
+  .sub-charts-grid {
+    grid-template-columns: 1fr;
+  }
+}

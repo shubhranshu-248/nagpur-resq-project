@@ -1,0 +1,727 @@
+/* Mission Page Stylesheet */
+
+.mission-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.mission-header-sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.emergency-type-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--critical-glow);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.incident-loc-tag {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.mission-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary-glow);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.05em;
+}
+
+/* Grids Layout */
+.mission-layout-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.mission-main-col,
+.mission-side-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Improved map canvas specifically for active missions */
+.mission-map-container {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius);
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.map-hdr-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 8px;
+}
+
+.map-hdr-line .title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.map-hdr-line .coordinates {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+.mission-map-view {
+  height: 200px;
+  background-color: #03080f;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.radar-mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.02) 1px, transparent 1px);
+  background-size: 15px 15px;
+  pointer-events: none;
+}
+
+/* Linear highway route map representation */
+.path-route-line {
+  width: 100%;
+  height: 6px;
+  background-color: #152538;
+  border-radius: 4px;
+  position: relative;
+}
+
+/* Alternating route lanes */
+.route-alternate {
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  border-radius: 4px;
+  border-top: 2px dotted rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.route-alternate.alt-1 {
+  transform: translateY(-24px);
+}
+
+.route-alternate.alt-2 {
+  transform: translateY(24px);
+}
+
+.route-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+  border-radius: 4px;
+  transition: width 1s linear;
+}
+
+/* Map Node items positioned absolute */
+.map-node {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.node-icon {
+  font-size: 1.25rem;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+.node-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  margin-top: 6px;
+  background-color: rgba(7, 17, 31, 0.85);
+  border: 1px solid var(--panel-border);
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+.node-start {
+  transform: translate(-50%, -50%);
+}
+
+.node-end {
+  transform: translate(-50%, -50%);
+}
+
+.node-ambulance-truck {
+  z-index: 20;
+  transition: left 1s linear;
+}
+
+.node-ambulance-truck .node-icon {
+  font-size: 1.4rem;
+  filter: drop-shadow(0 2px 8px var(--primary));
+}
+
+.node-signal {
+  transform: translate(-50%, -50%);
+  z-index: 15;
+}
+
+.signal-light-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+.signal-light-dot.green {
+  background-color: var(--success);
+  box-shadow: 0 0 8px var(--success);
+}
+
+.signal-light-dot.red {
+  background-color: var(--critical);
+  box-shadow: 0 0 8px var(--critical);
+}
+
+/* Telemetry Grid widgets */
+.mission-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.telemetry-box {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.telemetry-icon {
+  color: var(--text-muted);
+}
+
+.box-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.box-inner .lbl {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.box-inner .val {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-light);
+}
+
+/* Route Alternative selector styling */
+.routes-selector-panel {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius);
+  padding: 20px;
+}
+
+.routes-panel-hdr {
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.routes-tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.route-select-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background-color: rgba(7, 17, 31, 0.4);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.route-select-row:hover {
+  background-color: rgba(13, 27, 42, 0.3);
+  border-color: var(--text-muted);
+}
+
+.route-select-row.active {
+  border-color: var(--primary);
+  background-color: var(--primary-glow);
+  color: var(--text-light);
+}
+
+.route-name-col {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.route-name-col strong {
+  font-size: 0.85rem;
+}
+
+.badge-primary-route {
+  background-color: var(--primary-glow);
+  color: var(--primary);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  font-size: 0.58rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.badge-alt-route {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  border: 1px solid var(--panel-border);
+  font-size: 0.58rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.route-stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.divider-bar {
+  width: 1px;
+  height: 12px;
+  background-color: var(--panel-border);
+}
+
+/* Hospital Pre-Alert banner */
+.hospital-alert-box {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all var(--transition-normal);
+}
+
+.hospital-alert-box.alert-pulsing {
+  border-left: 4px solid var(--critical);
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.1);
+  animation: bgFlashRed 3s infinite ease-in-out;
+}
+
+@keyframes bgFlashRed {
+  0%, 100% { background-color: var(--panel-bg); }
+  50% { background-color: rgba(239, 68, 68, 0.03); }
+}
+
+.hospital-alert-box.acknowledged {
+  border-left: 4px solid var(--success);
+}
+
+.alert-hdr {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.alert-icon {
+  margin-top: 2px;
+}
+
+.alert-icon.bell-pulsing {
+  color: var(--critical);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.alert-hdr h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.alert-hdr .alert-sub {
+  font-size: 0.72rem;
+  margin-top: 2px;
+}
+
+.alert-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgba(7, 17, 31, 0.3);
+  border: 1px solid var(--panel-border);
+  padding: 12px;
+  border-radius: var(--border-radius-sm);
+}
+
+.alert-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.alert-item .lbl {
+  color: var(--text-muted);
+}
+
+.alert-item .val {
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.btn-acknowledge-alert {
+  width: 100%;
+  background-color: var(--critical);
+  color: white;
+  padding: 10px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-acknowledge-alert:hover {
+  background-color: var(--critical-hover);
+}
+
+.acknowledged-tag-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  color: var(--success);
+  padding: 8px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* Mission vertical CSS timeline */
+.mission-timeline-panel {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius);
+  padding: 20px;
+}
+
+.css-vertical-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timeline-event-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.timeline-left-time {
+  width: 60px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-top: 2px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.timeline-middle-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 16px;
+  position: relative;
+  align-self: stretch;
+}
+
+.timeline-circle {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--panel-border);
+  flex-shrink: 0;
+}
+
+.timeline-circle.active {
+  background-color: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+}
+
+.timeline-line {
+  flex: 1;
+  width: 1px;
+  background-color: var(--panel-border);
+  margin-top: 4px;
+  margin-bottom: -16px;
+}
+
+.timeline-right-content {
+  flex: 1;
+}
+
+.event-desc-text {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Responsiveness options */
+@media (max-width: 1100px) {
+  .mission-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .mission-telemetry-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Anomaly Blockage & Recalculation Overlays */
+.anomaly-alert-card {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius);
+  padding: 16px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.anomaly-alert-card.critical-flash {
+  border-left: 4px solid var(--critical);
+  animation: borderFlashRed 1.5s infinite alternate;
+}
+
+.anomaly-alert-card.warning-flash {
+  border-left: 4px solid var(--warning);
+}
+
+@keyframes borderFlashRed {
+  from { border-left-color: var(--critical); box-shadow: 0 0 10px rgba(239, 68, 68, 0.15); }
+  to { border-left-color: rgba(239, 68, 68, 0.4); box-shadow: 0 0 20px rgba(239, 68, 68, 0.35); }
+}
+
+.anomaly-alert-card .subtext {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.recalc-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(7, 17, 31, 0.4);
+  border: 1px solid var(--panel-border);
+  padding: 12px 18px;
+  border-radius: var(--border-radius-sm);
+  flex-wrap: wrap;
+}
+
+.recalc-stats .stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.recalc-stats .lbl {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.recalc-stats .val {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.recalc-stats .val.strike {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.stat-arrow {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+.loader-block {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.03em;
+}
+
+.stat-recovered {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  color: var(--success);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.btn-accept-reroute {
+  margin-left: auto;
+  background-color: var(--success);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-accept-reroute:hover {
+  background-color: var(--success-hover);
+}
+
+.btn-trigger-blockage {
+  background-color: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: var(--critical);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all var(--transition-fast);
+  margin-right: 8px;
+}
+
+.btn-trigger-blockage:hover {
+  background-color: var(--critical);
+  color: white;
+  box-shadow: 0 0 10px var(--critical-glow);
+}
+
+.v2-tag {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* Route selections states overrides */
+.route-select-row.disabled-v1 {
+  opacity: 0.4;
+  background-color: rgba(7, 17, 31, 0.2);
+  pointer-events: none;
+}
+
+.text-strike {
+  text-decoration: line-through;
+}
+
+/* Map specific blockage overrides */
+.node-blockage-x {
+  top: 50% !important;
+  z-index: 25 !important;
+}
+
+.node-blockage-x .node-icon {
+  font-size: 1.15rem;
+  filter: drop-shadow(0 2px 4px var(--critical));
+  animation: pulse 1s infinite alternate;
+}
+
+.route-alternate.active-path {
+  border-top-color: var(--warning) !important;
+  opacity: 0.9 !important;
+}
+
+.route-alternate.dimmed-path {
+  opacity: 0.2 !important;
+}
+
+.reroute-log {
+  border-top: 1px dashed var(--panel-border);
+  padding-top: 6px;
+  margin-top: 4px;
+  font-size: 0.62rem;
+  color: var(--warning);
+}
+

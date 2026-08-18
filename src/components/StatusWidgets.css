@@ -1,0 +1,141 @@
+/* Loading, Empty and Error Status Widgets CSS */
+
+.status-widget-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  width: 100%;
+}
+
+.status-widget-container.loading {
+  gap: 16px;
+}
+
+.spinner-wrapper {
+  background-color: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.08);
+}
+
+.status-message {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+}
+
+/* Empty State Widget */
+.status-widget-container.empty {
+  border: 1px dashed var(--panel-border);
+  border-radius: var(--border-radius);
+  background-color: rgba(7, 17, 31, 0.2);
+  gap: 10px;
+  min-height: 180px;
+}
+
+.info-icon-wrapper {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--panel-border);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.empty-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  max-width: 320px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Error Overlay Panel */
+.error-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(3, 8, 16, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.error-panel {
+  background-color: #0b1320;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.error-panel .subtext {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.btn-retry {
+  background-color: transparent;
+  border: 1px solid var(--critical);
+  color: var(--critical);
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-retry:hover {
+  background-color: var(--critical);
+  color: white;
+  box-shadow: 0 0 12px var(--critical-glow);
+  transform: translateY(-1px);
+}
+
+.inline-alert {
+  text-align: left;
+  align-items: stretch;
+  padding: 16px 20px;
+  width: 100%;
+  max-width: none;
+}
+
+.inline-alert.warning {
+  border-left: 3px solid var(--warning);
+  background-color: rgba(245, 158, 11, 0.02);
+}

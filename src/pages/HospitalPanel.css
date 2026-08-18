@@ -1,0 +1,564 @@
+/* Hospital Trauma Reception Portal styles */
+
+.hospital-portal-page {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Top Switcher Bar */
+.hospital-top-switch-bar {
+  width: 100%;
+  background-color: var(--panel-bg);
+  border-bottom: 1px solid var(--panel-border);
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.portal-badge-wrap .dot {
+  background-color: var(--success);
+  box-shadow: 0 0 8px var(--success);
+}
+
+.btn-portal-utility {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--panel-border);
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  font-weight: 750;
+  transition: all var(--transition-fast);
+}
+
+.btn-portal-utility:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+}
+
+.btn-portal-utility.logout {
+  color: var(--critical);
+  border-color: rgba(239, 68, 68, 0.3);
+  background-color: var(--critical-subtle);
+}
+
+.btn-portal-utility.logout:hover {
+  background-color: var(--critical);
+  color: white;
+}
+
+/* Main Container Layout */
+.hospital-main-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 16px;
+}
+
+.hospital-content-layout {
+  width: 100%;
+  max-width: 900px;
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-xl);
+  padding: 28px 32px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header Card */
+.hospital-header-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 16px;
+}
+
+.hosp-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hosp-avatar-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--success-subtle);
+  border: 1px solid var(--success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hosp-main-title {
+  font-size: 1.15rem;
+  font-weight: 850;
+  color: var(--text-light);
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.hosp-main-sub {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  margin: 2px 0 0;
+}
+
+.hosp-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--success-subtle);
+  color: var(--success);
+  border: 1px solid var(--success);
+  padding: 4px 12px;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.hosp-status-pill .dot.online {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--success);
+  box-shadow: 0 0 6px var(--success);
+}
+
+/* Tab Pills */
+.hospital-tab-pills {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 10px;
+  overflow-x: auto;
+}
+
+/* Tab Body */
+.hospital-tab-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Inbound Hero Card */
+.inbound-hero-card {
+  background-color: var(--bg-card-inner);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inbound-hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge-critical {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--critical-subtle);
+  color: var(--critical);
+  border: 1px solid var(--critical);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.badge-critical .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--critical);
+}
+
+.inbound-grid-metrics {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr;
+  gap: 16px;
+}
+
+.eta-countdown-box {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(6, 13, 24, 0.7) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: var(--border-radius-sm);
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.countdown-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.countdown-val {
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.countdown-lbl {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  font-weight: 750;
+  letter-spacing: 0.04em;
+}
+
+.inbound-telemetry-summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--bg-card-meta);
+  border-radius: var(--border-radius-sm);
+  padding: 14px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.summary-item .lbl {
+  color: var(--text-muted);
+  font-size: 0.65rem;
+}
+
+.summary-item .val {
+  color: var(--text-light);
+}
+
+/* Patient Triage Panel */
+.patient-triage-panel {
+  background-color: var(--bg-card-meta);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.patient-triage-panel h4 {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.triage-type-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.type-tag {
+  font-size: 0.95rem;
+  font-weight: 850;
+}
+
+.sector-tag {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.clinical-notes {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 2px 0 6px;
+}
+
+.reqs-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid var(--panel-border);
+  padding-top: 8px;
+}
+
+.req-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.req-pill {
+  font-size: 0.68rem;
+  font-weight: 750;
+  color: var(--success);
+  background-color: var(--success-subtle);
+  border: 1px solid var(--success);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Action Buttons */
+.hospital-actions-bar {
+  display: flex;
+  margin-top: 4px;
+}
+
+.btn-hosp-action {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-hosp-action.confirm {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 4px 16px var(--primary-glow);
+}
+
+.btn-hosp-action.confirm:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-hosp-action.receive {
+  background-color: var(--success);
+  color: #060D18;
+  box-shadow: 0 4px 16px var(--success-glow);
+}
+
+.btn-hosp-action.receive:hover {
+  background-color: var(--success-hover);
+}
+
+.hosp-admitted-banner {
+  width: 100%;
+  background-color: var(--success-subtle);
+  border: 1px solid var(--success);
+  color: var(--success);
+  padding: 14px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+/* Capacity Tab */
+.capacity-grid-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.capacity-manage-card {
+  background-color: var(--bg-card-inner);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cap-hdr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cap-hdr h3 {
+  font-size: 0.85rem;
+  font-weight: 850;
+  margin: 0;
+  color: var(--text-light);
+}
+
+.cap-hdr .sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.stepper-counter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-card-meta);
+  padding: 8px 16px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--panel-border);
+}
+
+.btn-stepper {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--panel-border);
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-stepper:hover {
+  background-color: var(--primary);
+}
+
+.stepper-val {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.stepper-val .num {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--text-light);
+}
+
+.stepper-val .total {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.infra-status-panel {
+  background-color: var(--bg-card-inner);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infra-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+  padding-bottom: 8px;
+}
+
+.infra-row strong {
+  color: var(--text-light);
+}
+
+/* History Tab Table */
+.admission-logs-table-wrap {
+  background-color: var(--bg-card-inner);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  overflow-x: auto;
+}
+
+.admission-logs-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.75rem;
+}
+
+.admission-logs-table th {
+  background-color: var(--bg-card-meta);
+  padding: 12px 16px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.admission-logs-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--panel-border);
+  color: var(--text-light);
+}
+
+.badge-admitted {
+  background-color: var(--success-subtle);
+  color: var(--success);
+  border: 1px solid var(--success);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+/* Footer */
+.hospital-portal-footer {
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  padding: 12px;
+  border-top: 1px solid var(--panel-border);
+  width: 100%;
+}
+
+/* Responsive Rules */
+@media (max-width: 768px) {
+  .hospital-content-layout {
+    padding: 16px 12px;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .hospital-main-container {
+    padding: 8px 0;
+  }
+
+  .inbound-grid-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .capacity-grid-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hosp-main-title {
+    font-size: 1rem;
+  }
+
+  .hosp-status-pill {
+    display: none;
+  }
+}

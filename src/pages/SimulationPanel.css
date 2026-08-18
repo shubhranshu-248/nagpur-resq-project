@@ -1,0 +1,438 @@
+/* Multi-Role Simulation Presentation styles */
+
+.simulation-page-wrapper {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  min-height: calc(100vh - 48px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Top Nav Bar */
+.sim-top-nav-bar {
+  width: 100%;
+  background-color: var(--panel-bg);
+  border-bottom: 1px solid var(--panel-border);
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-sim-back {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--panel-border);
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  font-weight: 750;
+  transition: all var(--transition-fast);
+}
+
+.btn-sim-back:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+}
+
+.sim-brand-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--purple-glow);
+  color: var(--purple);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  padding: 4px 10px;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.68rem;
+  font-weight: 750;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-sim-tool {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-weight: 750;
+}
+
+.sim-ctrl-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--bg-card-meta);
+  padding: 4px 8px;
+  border-radius: var(--border-radius-pill);
+  border: 1px solid var(--panel-border);
+}
+
+.btn-sim-play {
+  background-color: var(--warning);
+  color: #060D18;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-sim-pause {
+  background-color: var(--primary);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-sim-reset {
+  background-color: transparent;
+  color: var(--text-secondary);
+  padding: 5px 8px;
+}
+
+.speed-selector {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.speed-selector button {
+  padding: 3px 6px;
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  font-weight: 750;
+}
+
+.speed-selector button.active {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Main Container Layout */
+.sim-main-container {
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Timeline Flow */
+.sim-timeline-flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.timeline-step-btn {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.timeline-step-btn:hover {
+  background-color: var(--bg-card-hover);
+}
+
+.timeline-step-btn.current {
+  background-color: var(--primary-subtle);
+  border-color: var(--primary);
+  box-shadow: 0 4px 14px var(--primary-glow);
+}
+
+.step-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--panel-border);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.timeline-step-btn.done .step-badge {
+  background-color: var(--success);
+  color: white;
+}
+
+.timeline-step-btn.current .step-badge {
+  background-color: var(--primary);
+  color: white;
+}
+
+.step-label-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.step-role {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.step-title-short {
+  font-size: 0.58rem;
+  color: var(--text-muted);
+}
+
+/* Presentation Card */
+.sim-presentation-card {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-xl);
+  padding: 28px 32px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sim-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 16px;
+}
+
+.role-headline-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.role-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--bg-card-inner);
+  border: 1px solid var(--panel-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-index-tag {
+  font-size: 0.65rem;
+  color: var(--primary);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.step-main-title {
+  font-size: 1.25rem;
+  font-weight: 850;
+  color: var(--text-light);
+  margin: 2px 0 0;
+}
+
+.step-status-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--success);
+  background-color: var(--success-subtle);
+  border: 1px solid var(--success);
+  padding: 3px 10px;
+  border-radius: var(--border-radius-pill);
+}
+
+.sim-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.step-narrative-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.step-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.kpi-mini-box {
+  background-color: var(--bg-card-inner);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kpi-lbl {
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  font-weight: 750;
+}
+
+.kpi-val {
+  font-size: 0.82rem;
+  color: var(--text-light);
+}
+
+.sim-terminal-feed {
+  background-color: var(--bg-darker);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-sm);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.72rem;
+}
+
+.feed-hdr {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 6px;
+}
+
+.feed-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sim-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--panel-border);
+  padding-top: 16px;
+}
+
+.btn-sim-nav {
+  padding: 10px 18px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-sim-nav.primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-sim-nav.secondary {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--panel-border);
+  color: var(--text-secondary);
+}
+
+.step-counter-text {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.sim-footer {
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  padding: 14px;
+  border-top: 1px solid var(--panel-border);
+  width: 100%;
+}
+
+/* Responsive Rules */
+@media (max-width: 900px) {
+  .sim-timeline-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .step-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .sim-top-nav-bar {
+    padding: 10px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sim-presentation-card {
+    padding: 18px 14px;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .step-main-title {
+    font-size: 1.05rem;
+  }
+
+  .step-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+}
